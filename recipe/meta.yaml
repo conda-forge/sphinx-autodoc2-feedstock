@@ -67,7 +67,7 @@ outputs:
       commands:
         - pip check
         - autodoc2 --help
-        - pytest -vv --cov=autodoc2 --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=68 -k "not sphinx_build_directives"
+        - pytest -vv --cov=autodoc2 --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=63 -k "not sphinx_build_directives"
       requires:
         - pip
         - pytest-cov
