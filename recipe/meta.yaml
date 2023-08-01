@@ -10,6 +10,7 @@ source:
 
 build:
   number: 0
+  noarch: python
 
 requirements:
   host:
@@ -20,6 +21,7 @@ requirements:
 outputs:
   - name: sphinx-autodoc2
     build:
+      noarch: python
       script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
       entry_points:
         - autodoc2 = autodoc2.cli:app_main
@@ -48,6 +50,8 @@ outputs:
       doc_url: https://sphinx-autodoc2.readthedocs.io
 
   - name: sphinx-autodoc2-with-cli
+    build:
+      noarch: python
     requirements:
       host:
         - python >=3.8
