@@ -84,4 +84,5 @@ about:
 extra:
   feedstock-name: sphinx-autodoc2
   recipe-maintainers:
+    - conda-forge/sphinx
     - bollwyvl
