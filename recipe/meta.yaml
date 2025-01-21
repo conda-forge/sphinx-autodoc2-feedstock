@@ -5,18 +5,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/sphinx-autodoc2/sphinx_autodoc2-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/sphinx-autodoc2/sphinx_autodoc2-{{ version }}.tar.gz
   sha256: 7d76044aa81d6af74447080182b6868c7eb066874edc835e8ddf810735b6565a
 
 build:
-  number: 1
+  number: 2
   noarch: python
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
 
 outputs:
   - name: sphinx-autodoc2
@@ -29,10 +29,10 @@ outputs:
       host:
         - flit-core >=3.2,<4
         - pip
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - astroid >=2.7,<4
-        - python >=3.8
+        - python >={{ python_min }}
         - tomli
         - typing_extensions
     test:
@@ -42,6 +42,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
     about:
       home: https://github.com/sphinx-extensions2/sphinx-autodoc2
       summary: Analyse a python project and create documentation for it.
@@ -54,10 +55,10 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage('sphinx-autodoc2', max_pin='x.x.x') }}
-        - python >=3.8
+        - python >={{ python_min }}
         - typer
     test:
       source_files:
@@ -73,6 +74,7 @@ outputs:
         - pytest-cov
         - pytest-regressions
         - sphinx >=4.0,<7
+        - python {{ python_min }}
 
 about:
   home: https://github.com/sphinx-extensions2/sphinx-autodoc2
